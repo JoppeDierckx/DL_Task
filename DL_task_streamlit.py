@@ -9,7 +9,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix, classification_report
 
-image_size = (224, 224)
+image_size = (128, 128)
 batch_size = 32
 
 # Data augmentation and normalization for training
@@ -58,7 +58,7 @@ def train_model(train_generator, validation_generator, epochs):
     NUM_CLASSES = len(train_generator.class_indices)
 
     model = Sequential()
-    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)))
+    model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)))
     model.add(MaxPooling2D((2, 2)))
     model.add(Conv2D(64, (3, 3), activation='relu'))
     model.add(MaxPooling2D((2, 2)))
@@ -120,7 +120,7 @@ if train_model_button:
     )
 
     st.sidebar.header("Model Training Controls")
-    epochs = st.sidebar.slider("Number of Epochs", min_value=1, max_value=20, value=10)
+    epochs = st.sidebar.slider("Number of Epochs", min_value=1, max_value=5, value=3)
     model, history = train_model(train_generator, validation_generator, epochs)
 
     # Plot training and validation loss

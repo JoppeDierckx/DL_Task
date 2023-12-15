@@ -74,7 +74,7 @@ def train_model(train_generator, validation_generator, epochs):
 st.title("Deep Learning Model Training and EDA")
 
 # Sidebar controls
-dataset_path = st.text_input("Enter dataset path:", r"C:\Users\Joppe\Documents\school\Jaar_3\AI\11. DL - Introduction to Deep Learning")
+dataset_path = st.text_input("Enter dataset path:", r"./")
 perform_eda_button = st.button("Perform EDA")
 
 # Perform EDA

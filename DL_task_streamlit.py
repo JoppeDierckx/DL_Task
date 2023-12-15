@@ -8,6 +8,17 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix, classification_report
+# Data augmentation and normalization for training
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True
+)
+
+# Normalization for validation and test
+validation_datagen = ImageDataGenerator(rescale=1./255)
+test_datagen = ImageDataGenerator(rescale=1./255)
 
 # Function to perform EDA on the downloaded dataset
 def perform_eda(dataset_path):
@@ -74,7 +85,7 @@ def train_model(train_generator, validation_generator, epochs):
 st.title("Deep Learning Model Training and EDA")
 
 # Sidebar controls
-dataset_path = st.text_input("Enter dataset path:", r"./")
+dataset_path = r"./"
 perform_eda_button = st.button("Perform EDA")
 
 # Perform EDA

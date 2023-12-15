@@ -8,6 +8,9 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix, classification_report
+
+image_size = (224, 224)
+
 # Data augmentation and normalization for training
 train_datagen = ImageDataGenerator(
     rescale=1./255,

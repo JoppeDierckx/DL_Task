@@ -119,7 +119,6 @@ if train_model_button:
         class_mode='categorical'
     )
 
-    st.sidebar.header("Model Training Controls")
     epochs = 5
     model, history = train_model(train_generator, validation_generator, epochs)
 

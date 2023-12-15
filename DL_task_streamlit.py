@@ -120,7 +120,7 @@ if train_model_button:
     )
 
     st.sidebar.header("Model Training Controls")
-    epochs = st.sidebar.slider("Number of Epochs", min_value=1, max_value=5, value=3)
+    epochs = st.sidebar.slider("Number of Epochs", min_value=1, max_value=10, value=5)
     model, history = train_model(train_generator, validation_generator, epochs)
 
     # Plot training and validation loss

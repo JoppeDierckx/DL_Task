@@ -77,10 +77,10 @@ def train_model(train_generator, validation_generator, epochs):
     # Train the model
     history = model.fit(
         train_generator,
-        steps_per_epoch=train_generator.samples // batch_size,
+        steps_per_epoch=np.ceil(train_generator.samples / batch_size),
         epochs=epochs,
         validation_data=validation_generator,
-        validation_steps=validation_generator.samples // batch_size
+        validation_steps=np.ceil(validation_generator.samples / batch_size)
     )
 
     return model, history

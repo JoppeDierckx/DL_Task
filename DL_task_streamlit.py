@@ -10,7 +10,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix, classification_report
 
 image_size = (224, 224)
-batch_size = 32
+batch_size = 64
 
 # Data augmentation and normalization for training
 train_datagen = ImageDataGenerator(
